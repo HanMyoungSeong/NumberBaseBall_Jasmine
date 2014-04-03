@@ -15,8 +15,19 @@ Game.prototype.input = function(number){
 Game.prototype.result = function(){
 	if(this.number === "" || this.number === null || this.number.length != 3)
 		return "format is invalid";
-	else 
-		return this.inspectStrikeOrBallorEnd();
+	else if(this.isChar())
+		return "format is invalid";
+	return this.inspectStrikeOrBallorEnd();
+};
+
+Game.prototype.isChar = function(){
+	var character = this.number.split('');
+	var validate;
+	for(var i = 0 ; i < character.length; i++){
+		validate = (character[i] > '9' || character[i] < '0');
+		return validate;
+	}
+	return validate;
 };
 
 Game.prototype.inspectStrikeOrBallorEnd = function(){

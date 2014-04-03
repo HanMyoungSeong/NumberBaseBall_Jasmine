@@ -21,6 +21,12 @@ describe("GameTest", function(){
 		expect(result).toEqual("format is invalid");
 	});
 
+	it("should return message when input value is char", function(){
+		game.input("a12");
+		var result = game.result();
+		expect(result).toEqual("format is invalid");
+	});
+
 	it("should return message when input is not length of 3", function(){
 		game.input("123141234");
 		var result = game.result();
